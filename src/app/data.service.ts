@@ -14,7 +14,7 @@ import { Socket } from 'ngx-socket-io';
 
 export class DataService {
 
-  apiURL = "https://codigeek.app/robertodelivery/";
+  apiURL = "https://serene-inlet-97768.herokuapp.com/";
   private modalData = new Subject<any>();
 
   constructor( private socket: Socket, private router: Router, private _http : HttpClient) { }
