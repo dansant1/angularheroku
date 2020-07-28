@@ -1,0 +1,76 @@
+
+<div class="pb-4">
+
+  <!-- <ul class="header-megamenu nav mb-2 ">
+    <li class="nav-item">
+      <div class="search-wrapper" [class.active]="isActive" style="display: inline-block;">
+        <div class="input-holder">
+          <input [(ngModel)]="searchText" name="searchText" type="text" placeholder="¿Qué deseas buscar?" class="search-input">
+          <button class="search-icon" (click)="isActive = true"><span></span></button>
+        </div>
+      </div>
+    </li>
+  </ul> -->
+
+  <div @categorias class="col-12 col-sm-5 mb-4" style="padding: 0px 5px 0px 5px;background-image: linear-gradient(to right, #f40907 35%, #c70201 100%);border-radius: 8px;box-shadow: 0px 2px 4px 0px #acacac;">
+    <div (click)="seleccionarCategoria(null)" class="row m-0" style="border-radius: 3px; padding: 10px 0px; color:white;">
+      <div class="col-5" style="display:flex; align-items:center; justify-content: center;padding: 0px;">
+        <img src="https://codigeek.com/projects/robertodelivery/ilustracion_comercios_cercanos.png" style="width:100%;"/>
+      </div>
+      <div class="col-7" style="display: flex; align-items: center;">
+        <h5 style="font-size: 14px;font-weight: bold;margin-bottom: 5px;">
+          Comercios cercanos
+          <br/>
+          <span style="font-size: 9px;margin: 0px;font-weight: normal;">
+            Conoce los {{negociosCercanos$.length}} comercios disponibles cerca de tí
+          </span>
+        </h5>
+      </div>
+    </div>
+  </div>
+
+  <!-- <ul class='circle-container'>
+    <li (click)="seleccionarCategoria(registro_t)" *ngFor="let registro_t of mainArray$; index as i">
+      <img src="{{ registro_t.foto }}" alt="..." />
+      <div class="text-center mt-1" style="font-size: 13px;font-weight: bold;">
+        {{ registro_t.nombre }}
+      </div>
+    </li>
+  </ul> -->
+
+  <div class="row mb-3" style="margin-top: 8%;font-family:codigeekfont;margin: 0px;">
+    <div @categorias (click)="seleccionarCategoria(registro_t)" class="col-4 col-sm-2 mb-3" *ngFor="let registro_t of mainArray$; index as i" style="width: 50%;padding: 0px 5px 0px 5px;">
+      <div class="text-center">
+        <img class="imagen-categoria-inicio" src="{{ registro_t.foto }}" alt="..." style="width: 80%;margin: auto;"/>
+        <div class="text-center mt-1" style="font-size: 12px;font-weight: bold;">
+          {{ registro_t.nombre }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div @categorias class="col-12 col-sm-5 mb-3" style="padding: 0px 5px 0px 5px;background-image: linear-gradient(to right, #f40907 35%, #c70201 100%);border-radius: 8px;box-shadow: 0px 2px 4px 0px #acacac;">
+    <div class="row m-0" style="border-radius: 3px; padding: 10px 0px; color:white;">
+      <div class="col-7 pl-2 pr-1" style="display: flex; align-items: center;">
+        <h5 style="font-size: 14px;font-weight: bold;margin-bottom: 5px;">
+          Referidos
+          <br/>
+          <span (click)="irAReferidos()" style="font-size: 8px;margin: 0px;font-weight: normal;">
+            ¡Refiere tu comercio favorito y gana!
+          </span>
+          <br/>
+          <span (click)="irAReferidos()" style="font-size: 7px;margin: 0px;font-weight: normal;">
+            Te devolvemos el 50% de tu siguiente pedido
+          </span>
+          <div (click)="irATerminos()" style="color: #444444; background: white; border-radius: 2px; padding: 2px 0px; font-size: 9px; text-align: center;   width: 90%; margin: auto; margin-top: 5px;">
+            Ver términos y condiciones
+          </div>
+        </h5>
+      </div>
+      <div (click)="irAReferidos()" class="col-5" style="display:flex; align-items:center; justify-content: center;padding: 0px;">
+        <img src="https://codigeek.com/projects/robertodelivery/ilutracion_referidos.png" style="width:100%;"/>
+      </div>
+    </div>
+  </div>
+
+</div>

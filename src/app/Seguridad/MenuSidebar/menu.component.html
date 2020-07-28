@@ -1,0 +1,252 @@
+<div class="pr-2 pl-2 pb-4" style="font-family: codigeekfont;">
+  <div class="mt-1 mb-1 text-center">
+    <img src="https://codigeek.com/projects/robertodelivery/LOGO%20EnBio-01.png" style="width: 20%;position: absolute;right: 0;">
+  </div>
+  <div class="row mb-3">
+    <app-user-box style="width:100%;"></app-user-box>
+  </div>
+
+  <!-- General -->
+  <div class="row">
+    <div class="col-12 p-0">
+      <div (click)="irA('/cliente/perfil')" class="card-header card-header-menu">
+        <div style="text-align: left;font-weight: normal;margin-left: 20px;">
+          <i class="pe-7s-user" style="font-size: 17px;position: absolute;left: 15px;top: 10px;"></i>
+          Mi cuenta
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Administración -->
+  <div class="row" *ngIf="currentUser$.tipo_usuario_id === '5c4050f358209844a83c8622'">
+    <div class="col-12 p-0">
+      <div (click)="irA('/administracion/dashboard')" class="card-header card-header-menu">
+        <div style="text-align: left;font-weight: normal;margin-left: 20px;">
+          <i class="pe-7s-display2" style="font-size: 20px;position: absolute;left: 15px;top: 11px;"></i>
+          Estadísticas
+        </div>
+      </div>
+    </div>
+    <div class="col-12 p-0">
+      <div (click)="irA('/administracion/categorias')" class="card-header card-header-menu">
+        <div style="text-align: left;font-weight: normal;margin-left: 20px;">
+          <i class="pe-7s-server" style="font-size: 20px;position: absolute;left: 15px;top: 11px;"></i>
+          Categorías
+        </div>
+      </div>
+    </div>
+    <div class="col-12 p-0">
+      <div (click)="irA('/administracion/catalogos')" class="card-header card-header-menu">
+        <div style="text-align: left;font-weight: normal;margin-left: 20px;">
+          <i class="pe-7s-server" style="font-size: 20px;position: absolute;left: 15px;top: 11px;"></i>
+          Catálogos
+        </div>
+      </div>
+    </div>
+    <div class="col-12 p-0">
+      <div (click)="irA('/administracion/usuarios')" class="card-header card-header-menu">
+        <div style="text-align: left;font-weight: normal;margin-left: 20px;">
+          <i class="pe-7s-user" style="font-size: 20px;position: absolute;left: 15px;top: 11px;"></i>
+          Usuarios
+        </div>
+      </div>
+    </div>
+    <div class="col-12 p-0">
+      <div (click)="irA('/administracion/negocios')" class="card-header card-header-menu">
+        <div style="text-align: left;font-weight: normal;margin-left: 20px;">
+          <i class="pe-7s-shopbag" style="font-size: 20px;position: absolute;left: 15px;top: 11px;"></i>
+          Negocios
+        </div>
+      </div>
+    </div>
+    <div class="col-12 p-0">
+      <div (click)="irA('/administracion/referidos')" class="card-header card-header-menu">
+        <div style="text-align: left;font-weight: normal;margin-left: 20px;">
+          <i class="pe-7s-shopbag" style="font-size: 20px;position: absolute;left: 15px;top: 11px;"></i>
+          Referidos
+        </div>
+      </div>
+    </div>
+    <div class="col-12 p-0">
+      <div (click)="irAPedidos()" class="card-header card-header-menu">
+        <div style="text-align: left;font-weight: normal;margin-left: 20px;">
+          <i class="pe-7s-box1" style="font-size: 20px;position: absolute;left: 15px;top: 11px;"></i>
+          Mis pedidos
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Administración Negocio -->
+  <div class="row" *ngIf="currentUser$.tipo_usuario_id === '5c4050fa58209844a83c8623'">
+    <div class="col-12 p-0">
+      <div (click)="irA('/administracion/dashboard')" class="card-header card-header-menu">
+        <div style="text-align: left;font-weight: normal;margin-left: 20px;">
+          <i class="pe-7s-display2" style="font-size: 20px;position: absolute;left: 15px;top: 11px;"></i>
+          Mis ventas
+        </div>
+      </div>
+    </div>
+    <div class="col-12 p-0">
+      <div (click)="irA('/negocio/perfil')" class="card-header" style="color: #797979 !important;border-bottom: 1px solid #e9e9e9;cursor:pointer;height: 2.8rem;">
+        <div style="text-align: left;font-weight: normal;margin-left: 20px;">
+          <i class="pe-7s-user" style="font-size: 20px;position: absolute;left: 15px;top: 11px;"></i>
+          Mi comercio
+        </div>
+      </div>
+    </div>
+    <div class="col-12 p-0">
+      <div (click)="irA('/negocio/usuarios')" class="card-header" style="color: #797979 !important;border-bottom: 1px solid #e9e9e9;cursor:pointer;height: 2.8rem;">
+        <div style="text-align: left;font-weight: normal;margin-left: 20px;">
+          <i class="pe-7s-user" style="font-size: 20px;position: absolute;left: 15px;top: 11px;"></i>
+          Usuarios
+        </div>
+      </div>
+    </div>
+    <div class="col-12 p-0">
+      <div (click)="irA('/administracion-negocio/categorias')" class="card-header card-header-menu">
+        <div style="text-align: left;font-weight: normal;margin-left: 20px;">
+          <i class="pe-7s-display2" style="font-size: 20px;position: absolute;left: 15px;top: 11px;"></i>
+          Categorías
+        </div>
+      </div>
+    </div>
+    <div class="col-12 p-0">
+      <div (click)="irA('/administracion-negocio/menu')" class="card-header card-header-menu">
+        <div style="text-align: left;font-weight: normal;margin-left: 20px;">
+          <i class="pe-7s-display2" style="font-size: 20px;position: absolute;left: 15px;top: 11px;"></i>
+          Mis productos
+        </div>
+      </div>
+    </div>
+    <div class="col-12 p-0">
+      <div (click)="irA('/administracion-negocio/mediosdepago')" class="card-header card-header-menu">
+        <div style="text-align: left;font-weight: normal;margin-left: 20px;">
+          <i class="pe-7s-display2" style="font-size: 20px;position: absolute;left: 15px;top: 11px;"></i>
+          Mis medios de pago
+        </div>
+      </div>
+    </div>
+    <div class="col-12 p-0">
+      <div (click)="irA('/administracion/puntos')" class="card-header" style="color: #797979 !important;border-bottom: 1px solid #e9e9e9;cursor:pointer;height: 2.8rem;">
+        <div style="text-align: left;font-weight: normal;margin-left: 20px;">
+          <i class="pe-7s-ticket" style="font-size: 20px;position: absolute;left: 15px;top: 11px;"></i>
+          Programa de créditos
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- Cliente -->
+  <div class="row" *ngIf="currentUser$.tipo_usuario_id === '5c40513258209844a83c8629'">
+    <!-- <div class="col-12 p-0">
+      <div (click)="irA('/cliente/seleccion-categoria')" class="card-header card-header-menu">
+        <div style="text-align: left;font-weight: normal;margin-left: 20px;">
+          <i class="pe-7s-home" style="font-size: 20px;position: absolute;left: 15px;top: 11px;"></i>
+          ¡Pide ahora!
+        </div>
+      </div>
+    </div> -->
+    <div class="col-12 p-0">
+      <div (click)="irAPedidos()" class="card-header card-header-menu">
+        <div style="text-align: left;font-weight: normal;margin-left: 20px;">
+          <i class="pe-7s-box1" style="font-size: 20px;position: absolute;left: 15px;top: 11px;"></i>
+          Mis pedidos
+          <span style="position: absolute;right: 10px;background: #e90f0f;color: white;padding: 4px 8px;line-height: 1;top: 13px;font-size: 9px;font-weight: normal;border-radius: 3px;">
+            {{ contadorPedidosPendientes$ }} pendientes
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 p-0">
+      <div (click)="irA('/cliente/puntos')" class="card-header card-header-menu">
+        <div style="text-align: left;font-weight: normal;margin-left: 20px;">
+          <i class="lnr-tag" style="font-size: 20px;position: absolute;left: 15px;top: 11px;"></i>
+          Mi billetera
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="col-12 p-0">
+      <div class="card-header card-header-menu">
+        <div style="text-align: left;font-weight: normal;">
+          <i class="pe-7s-phone" style="color: #797979 !important;font-size: 20px;position: absolute;left: 15px;top: 11px;"></i>
+          <a href="https://api.whatsapp.com/send?phone={{whatsapp$}}" class="vsm-link" style="padding: 0px 20px; font-weight: normal;">
+            <div class="vsm-title" style="color: #797979 !important;">Reporta un problema</div>
+          </a>
+        </div>
+      </div>
+    </div> -->
+  </div>
+
+  <!-- Repartidor -->
+  <div class="row" *ngIf="currentUser$.tipo_usuario_id === '5c40513658209844a83c862a'">
+
+  </div>
+  <!-- Repartidor -->
+
+  <!-- Restaurante -->
+  <div class="row" *ngIf="currentUser$.tipo_usuario_id === '5e30cadaec6ea3c622235f99'">
+    <div class="col-12 p-0">
+      <div (click)="irAPedidos()" class="card-header card-header-menu">
+        <div style="text-align: left;font-weight: normal;margin-left: 20px;">
+          <i class="pe-7s-box1" style="font-size: 20px;position: absolute;left: 15px;top: 11px;"></i>
+          Mis pedidos
+          <span style="position: absolute;right: 10px;background: #e90f0f;color: white;padding: 4px 8px;line-height: 1;top: 13px;font-size: 9px;font-weight: normal;border-radius: 3px;">
+            {{ contadorPedidosPendientes$ }} pendientes
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Restaurante -->
+
+  <!-- Recepción -->
+  <div class="row" *ngIf="currentUser$.tipo_usuario_id === '5e30cae5ec6ea3c622235f9b'">
+    <div class="col-12 p-0">
+      <div (click)="irAPedidos()" class="card-header card-header-menu">
+        <div style="text-align: left;font-weight: normal;margin-left: 20px;">
+          <i class="pe-7s-box1" style="font-size: 20px;position: absolute;left: 15px;top: 11px;"></i>
+          Mis pedidos
+          <span style="position: absolute;right: 10px;background: #e90f0f;color: white;padding: 4px 8px;line-height: 1;top: 13px;font-size: 9px;font-weight: normal;border-radius: 3px;">
+            {{ contadorPedidosPendientes$ }} pendientes
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Recepción -->
+
+
+  <!-- General -->
+  <div class="row">
+    <div class="col-12 p-0">
+      <div (click)="irA('/general/ayuda')" class="card-header card-header-menu">
+        <div style="text-align: left;font-weight: normal;margin-left: 20px;">
+          <i class="pe-7s-bell" style="font-size: 20px;position: absolute;left: 15px;top: 11px;"></i>
+          Ayuda y soporte técnico
+        </div>
+      </div>
+    </div>
+    <div class="col-12 p-0">
+      <div (click)="irA('/general/notificaciones')" class="card-header card-header-menu">
+        <div style="text-align: left;font-weight: normal;margin-left: 20px;">
+          <i class="pe-7s-bell" style="font-size: 20px;position: absolute;left: 15px;top: 11px;"></i>
+          Notificaciones
+        </div>
+      </div>
+    </div>
+    <div class="col-12 p-0">
+      <div (click)="userLogout()" class="card-header card-header-menu">
+        <div style="text-align: left;font-weight: normal;margin-left: 20px;">
+          <i class="pe-7s-lock" style="font-size: 20px;position: absolute;left: 15px;top: 11px;"></i>
+          Cerrar sesión
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

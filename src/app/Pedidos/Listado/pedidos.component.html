@@ -1,0 +1,77 @@
+<div class="col-12 mt-4 mb-4" style="text-align: left;font-weight: bold;width: 100%;display: flex;justify-content: center;color: #c70201;font-family: codigeekfont;">
+  <i (click)="regresar()" class="lnr-chevron-left mr-3" style="font-weight: bold;font-size: 20px;position: absolute;left: 15px;"></i>
+  Pedidos
+</div>
+
+<div class="row m-0 mt-5" *ngIf="mainArray$.length>0" style="width: 100%;background: #f4f4f4;padding: 15px 8px;border-radius: 20px 20px 0px 0px;box-shadow: 0px -1px 5px 1px #d3d3d3;min-height: 100vh;">
+  <div class="mt-2" style="font-family:codigeekfont;width:100%;">
+    <div>
+      <ngb-tabset class="tabs-animated tabs-animated-shadow">
+        <ngb-tab>
+          <ng-template ngbTabTitle><span>En proceso</span></ng-template>
+          <ng-template ngbTabContent>
+            <div class="row" style="font-family: codigeekfont;margin: 0px;width: 100%;">
+              <div class="col-12 col-sm-4 mb-3" @restaurantes *ngFor="let pedido_t of pedidosEnCurso$; index as i">
+                <div class="card main-card" (click)="gestionarPedido(pedido_t)" style="padding: 15px;box-shadow: 0px 4px 12px 0px #dedede;">
+                  <div class="row m-0 p-0">
+                    <div class="col-3 pl-0 text-center">
+                        <img *ngIf="pedido_t.negocio.foto" width="60" class="rounded-circle" src="{{ pedido_t.negocio.foto }}" style="border-radius: 5% !important;box-shadow: 0px 0px 5px 0px #b8b8b8;width: 100%;">
+                        <img *ngIf="!pedido_t.negocio.foto" width="60" class="rounded-circle" src="{{ pedido_t.categoria.foto }}" style="width: 100%;box-shadow: 0px 2px 4px 0px #dadada;">
+                    </div>
+                    <div class="col-9 pl-0 pr-2" style="align-items: center; display: flex;">
+                        <div class="widget-heading" style="font-size: 14px;color: #20284c;margin-bottom: 2px;font-weight: 600;line-height: 1;">
+                          {{ pedido_t.negocio.nombre }}
+                          <br/>
+                          <div *ngIf="pedido_t.fecha_pedido" style="color: #9e9e9e;font-weight: normal;font-size: 9px;margin-top: 8px;">
+                            {{ pedido_t.fecha_pedido | date:'dd/MM/yyyy' }} {{ pedido_t.fecha_pedido | date:'hh:mm' }}
+                          </div>
+                          <div *ngIf="!pedido_t.fecha_pedido" style="color: #9e9e9e;font-weight: normal;font-size: 9px;margin-top: 8px;">
+                            {{ pedido_t.fecha_alta | date:'dd/MM/yyyy' }} {{ pedido_t.fecha_alta | date:'hh:mm' }}
+                          </div>
+                          <div style="color: #c70201;font-weight: bold;font-size: 15px;margin-top: 5px;">
+                            S/ {{ pedido_t.total }}
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab>
+          <ng-template ngbTabTitle><span>Entregados</span></ng-template>
+          <ng-template ngbTabContent>
+            <div class="row" style="font-family: codigeekfont;margin: 0px;width: 100%;">
+              <div class="col-12 col-sm-4 mb-3" @restaurantes *ngFor="let pedido_t of pedidosCompletados$; index as i">
+                <div class="card main-card" (click)="gestionarPedido(pedido_t)" style="padding: 15px;box-shadow: 0px 4px 12px 0px #dedede;">
+                  <div class="row m-0 p-0">
+                    <div class="col-3 pl-0 text-center">
+                        <img *ngIf="pedido_t.negocio.foto" width="60" class="rounded-circle" src="{{ pedido_t.negocio.foto }}" style="border-radius: 5% !important;box-shadow: 0px 0px 5px 0px #b8b8b8;width: 100%;">
+                        <img *ngIf="!pedido_t.negocio.foto" width="60" class="rounded-circle" src="{{ pedido_t.categoria.foto }}" style="width: 100%;box-shadow: 0px 2px 4px 0px #dadada;">
+                    </div>
+                    <div class="col-9 pl-0 pr-2" style="align-items: center; display: flex;">
+                        <div class="widget-heading" style="font-size: 14px;color: #20284c;margin-bottom: 2px;font-weight: 600;line-height: 1;">
+                          {{ pedido_t.negocio.nombre }}
+                          <br/>
+                          <div *ngIf="pedido_t.fecha_pedido" style="color: #9e9e9e;font-weight: normal;font-size: 9px;margin-top: 8px;">
+                            {{ pedido_t.fecha_pedido | date:'dd/MM/yyyy' }} {{ pedido_t.fecha_pedido | date:'hh:mm' }}
+                          </div>
+                          <div *ngIf="!pedido_t.fecha_pedido" style="color: #9e9e9e;font-weight: normal;font-size: 9px;margin-top: 8px;">
+                            {{ pedido_t.fecha_alta | date:'dd/MM/yyyy' }} {{ pedido_t.fecha_alta | date:'hh:mm' }}
+                          </div>
+                          <div style="color: #c70201;font-weight: bold;font-size: 15px;margin-top: 5px;">
+                            S/ {{ pedido_t.total }}
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+    </div>
+  </div>
+</div>

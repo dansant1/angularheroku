@@ -1,0 +1,73 @@
+<div class="col-12 mt-4 mb-4" style="text-align: left;font-weight: bold;width: 100%;display: flex;justify-content: center;color: #c70201;font-family: codigeekfont;">
+  <i (click)="regresar()" class="lnr-chevron-left mr-3" style="font-weight: bold;font-size: 20px;position: absolute;left: 15px;"></i>
+  Categorías
+</div>
+
+<div class="ml-3 mt-5 page-title-actions text-center" >
+  <ul class="header-megamenu nav">
+    <li class="nav-item">
+      <div class="search-wrapper" [class.active]="isActive" style="display: inline-block;">
+        <div class="input-holder">
+          <input type="text" placeholder="¿Qué deseas buscar?" class="search-input">
+          <button class="search-icon" (click)="isActive = true"><span></span></button>
+        </div>
+        <button class="close" (click)="isActive = false"></button>
+      </div>
+    </li>
+    <li class="nav-item">
+      <button (click)="nuevoRegistro()" type="button" class="btn-shadow d-inline-flex align-items-center btn btn-success" style="display: inline-block; margin-top: 5px;">
+
+        Crear nuevo
+      </button>
+    </li>
+  </ul>
+</div>
+
+<div class="row m-0">
+  <div class="pl-3 pr-3 mt-2 col-12" style="font-family:codigeekfont;">
+    <ul class="list-group list-group-flush mt-2" *ngFor="let categoria_t of mainArray$; index as i" style="padding: 0px 10px;">
+      <li class="list-group-item mb-2" style="background: transparent; padding: 10px 0px 0px 0px; border: none;">
+          <button type="button" class="btn btn-outline-primary" (click)="seleccionarCategoria(i)"
+                  [attr.aria-expanded]="!categoria_t.expand" aria-controls="categoria_t._id" style="width: 100%;text-align: left;display: flex;align-items: center;background-image: linear-gradient(to right, #c70201 35%, #f40907 100%);color: white;box-shadow: 0px 1px 4px 0px #929292;">
+            <i (click)="editarRegistro( categoria_t )"></i>
+            {{ categoria_t.nombre | uppercase }}
+            <i class="lnr-chevron-down" style="position: absolute; right: 10px; font-weight: bold;"></i>
+          </button>
+      </li>
+      <li class="list-group-item" style="padding: 5px 0px;border: none;background: transparent;" id="categoria_t._id" [ngbCollapse]="!categoria_t.expand">
+        <div class="row m-0">
+          <div class="col-6 mb-2 pr-2 pl-2" *ngFor="let platillo_t of categoria_t.platillos; index as j" >
+            <div class="row m-0 pl-3 pr-3 pt-2 pb-2" (click)="editarPlatillo( categoria_t, platillo_t )" *ngIf="platillo_t.disponible" style="border: none; background: white; box-shadow: 0px 0px 3px 0px #d1d1d1; border-radius: 4px;">
+              <div class="col-12 p-0 text-center">
+                <img *ngIf="platillo_t.foto" width="60" class="rounded-circle" src="{{ platillo_t.foto }}" style="border-radius: 50px !important;box-shadow: 0px 0px 10px 0px #dadada;">
+                <img *ngIf="!platillo_t.foto" width="60" class="rounded-circle" src="{{ categoria_t.foto }}" style="border-radius: 50px !important;box-shadow: 0px 0px 10px 0px #dadada;">
+              </div>
+              <div class="col-12 p-0 mt-1 mb-1 text-center">
+                <div class="widget-heading" style="font-size: 10px;font-weight: bold;color: #525252;line-height: 1.2;margin-top: 3px;">
+                  {{ platillo_t.nombre }}
+                </div>
+                <p *ngIf="platillo_t.marca" style="margin: 5px 0px 0px 0px;text-align: center;font-size: 9px;line-height: 1;color: #989898;">
+                  {{ platillo_t.marca | limitTo : 20 }}
+                </p>
+                <p style="margin: 0px 0px 0px 0px;text-align: center;font-size: 9px;line-height: 1;color: #989898;">
+                  {{ platillo_t.presentacion ? platillo_t.presentacion : "" | limitTo : 20 }} {{ platillo_t.capacidad ? platillo_t.capacidad : "" | limitTo : 20 }} {{ platillo_t.unidad ? platillo_t.unidad : "" | limitTo : 20 }}
+                </p>
+              </div>
+              <div class="col-12 p-0 text-center">
+                <div class="descuento" *ngIf="platillo_t.promocion">
+                  {{ platillo_t.promocion_total }}% descuento
+                </div>
+                <div class="price-tag">
+                  S/ {{ platillo_t.costo | number : '1.2-2' }}
+                </div>
+                <div *ngIf="platillo_t.promocion" class="cross-price">
+                  {{ platillo_t.calculado_descuento | number : '1.2-2' }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
