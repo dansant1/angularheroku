@@ -94,7 +94,7 @@
     "tether": "^1.4.7",
     "tslib": "^1.10.0",
     "typescript": "3.7.5",
-    "xlsx": "^0.16.2",
+    "xlsx": "^0.17.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
